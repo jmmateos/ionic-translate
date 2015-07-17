@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link href="styles/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="styles/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ionic/release/js/ionic.js"></script>
+    <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/configuration.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body ng-app="starter">
+    <ion-pane ng-controller="langsCtrl">
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">{{'title' | translate}}</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-more" ng-click="openPopover($event)"></button>
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        <ul class="list">
+            <li class="item" translate="as_attribute"></pli>
+            <li class="item" translate>as_text</li>
+            <li class="item"> {{'as_filter' | translate}}</li>
+            <li class="item" translate="as_variable" translate-values="{name : 'jmmateos'}" ></li>
+        </ul>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
+
+
+<script id="sellangs.html" type="text/ng-template">
+    <ion-popover-view>
+    <ion-content>
+      <div class="list">
+        <button class="item" ng-click="changeLanguage('es')">Español</button>
+        <button class="item" ng-click="changeLanguage('en')">English</button>
+      </div>
+    </ion-content>
+    </ion-popover-view>  
+</script>

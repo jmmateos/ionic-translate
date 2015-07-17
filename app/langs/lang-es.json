@@ -1,0 +1,7 @@
+{
+	"title" :  "ejemplo de angular-translate",
+	"as_attribute" : "¡Pasado como atributo!",
+	"as_text" : "¡Pasado como texto!",
+	"as_filter" : "Usando filtro",
+	"as_variable" : "Hola, soy {{name}} (versión variables)"
+}
