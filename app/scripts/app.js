@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic','pascalprecht.translate', 'ngCordova'])
 
-.run(function($ionicPlatform, $translate) {
+.run(function($ionicPlatform, $translate, $cordovaGlobalization) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,17 +15,21 @@ angular.module('starter', ['ionic','pascalprecht.translate', 'ngCordova'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    $translate.use('en').then (function (data) {
-      console.log('success: ' + data);
-    }, function (error){
-      console.log('error: ' + error);
-    });
+    $cordovaGlobalization.getPreferredLanguage().then(
+      function (result) {
+          var language = result.value.split("-")[0]
+          $translate.use(language).then (function (data) {
+            console.log('success: ' + data);
+          }, function (error){
+            console.log('error: ' + error);
+          });
+      });
   });
 })
 
 .config(function ($translateProvider){
     $translateProvider.useStaticFilesLoader({
-      prefix: '/langs/lang-',
+      prefix: 'langs/lang-',
       suffix: '.json'
     });
     $translateProvider.preferredLanguage('en');  
